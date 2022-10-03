@@ -1,0 +1,48 @@
+yarn create next-app .
+
+> delete .eslintrc.json
+
+> copy .prettierignore & .prettierrc
+
+yarn dev
+> check website working ok!
+
+yarn add web3uikit moralis-v1 react-moralis
+yarn add @web3uikit/core @web3uikit/icons @web3uikit/web3
+yarn add moralis@1.11.0 react-moralis@1.3.5
+
+> Create components folder and Header.js
+
+> in pages/_app.js add 
+import {MoralisProvider} from "react-moralis"
+import Header from "../components/Header"
+> wrap component 
+return (
+      <MoralisProvider initializeOnMount={false}>
+            <Header />
+            <Component {...pageProps} />
+      </MoralisProvider>
+    );
+
+yarn add --dev tailwindcss postcss autoprefixer
+yarn tailwindcss init -p
+
+> in tailwnd.config.js, change contect to:
+> content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  
+> in styles/globals.css repla ce with
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+yarn add dotenv
+
+
+>> Moralis Dapp setup
+create Dapp on moralis.io
+In env, update server url, app id, master key
+In packages.json, update server url in scripts "moralis:sync"
+Tinker with addEvents.js
+Run yarn hardhat node on backend code
+node addEvents.js
+yarn moralis:sync
